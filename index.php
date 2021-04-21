@@ -17,6 +17,9 @@
           case 'login':
             require_once 'view/login.php';
             break;
+          case 'registro':
+            require_once 'view/registro.php';
+            break;
           default:
             require_once 'index.php';
             break;
