@@ -1,17 +1,18 @@
-CREATE TABLE IF NOT EXISTS usuario(
-  id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  nombre_usuario VARCHAR(45) NOT NULL,
-  paterno_usuario VARCHAR(45) NOT NULL,
-  materno_usuario VARCHAR(45) NOT NULL,
-  fecha_nacimiento_usuario DATE NOT NULL,
-  telefono_usuario VARCHAR(45) NOT NULL,
-  carrera_usuario VARCHAR(45) NOT NULL,
-  mail_usuario VARCHAR(45) NOT NULL,
-  password_usuario VARCHAR(45)NOT NULL,
-  subio_archivo INT DEFAULT 0,
-  dda_autorizo INT DEFAULT 0,
-  rf_autorizo INT DEFAULT 0,
-  habilitar_examen INT DEFAULT 0,
-  calificacion_usuario INT DEFAULT 0,
-  rol INT NOT NULL DEFAULT 0
-)ENGINE=InnoDB 
+create table if not exists usuario(
+    id_usuario int not null auto_increment primary key,
+    nombre_usuario varchar(45) not null,
+    paterno_usuario varchar(45) not null,
+    materno_usuario varchar(45) not null,
+    fecha_nacimiento_usuario date not null,
+    telefono_usuario varchar(45) not null,
+    carrera_usuario varchar(45) not null,
+    mail_usuario varchar(45) not null,
+    password_usuario varchar(45) not null,
+    subio_archivos int default 0,
+    dda_autorizo int default 0,
+    rf_autorizo int default 0,
+    habilitar_examen int default 0,
+    calificacion_usuario int default 0,
+    rol int not null default 0
+
+)ENGINE=InnoDB;

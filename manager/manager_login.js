@@ -1,17 +1,18 @@
-$(document).ready(function() {
-    let nombre;
-    let password;
-    $('#btn_sesion').click(function() {
-        nombre = $('#usuario').val();
-        password = $('#password').val();
-        recolector = "bandera_nombre=" + nombre + "&bandera_password=" + password
+
+$(document).ready(function(){
+
+    $('#btn_sesion').click(function(){
+
         $.ajax({
             type: 'POST',
-            data: recolector,
-            url: 'control/control_login.php',
-            success: function(r) {
-                console.log(r);
+            data: {
+                "nombre" : $('#nombre').val(),
+                "password" : $('#password').val()
             },
+            url: 'control/control_login.php',
+            success: r => {
+                console.log(r);
+            }
         });
 
     });

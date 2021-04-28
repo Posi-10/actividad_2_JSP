@@ -1,43 +1,45 @@
-$(document).ready(function() {
+$(document).ready(function(){
 
-    function valida_construccion_alfabetica() {
-
+    function valida_construccion_alfabetica(){
+        
     }
 
-    function valida_vacios() {
-        if ($('#registro_nombre').val() == "") {
-            swal('Upps', 'Ingresa tu "Nombre" por favor', 'warning');
+    function valida_vacios(){
+        if($('#registro_nombre').val() ==""){
+            swal('Upps', 'Ingresa tu "nombre" por favor', 'warning');
             return false;
-        } else if ($('#registro_paterno').val() == "") {
-            swal('Upps', 'Ingresa tu "Apellido Paterno" por favor', 'warning');
+        }else if($('#registro_paterno').val()==""){
+            swal('Upps', 'Ingresa tu "apellido paterno" por favor', 'warning');
             return false;
-        } else if ($('#registro_materno').val() == "") {
-            swal('Upps', 'Ingresa tu "Apellido Materno" por favor', 'warning');
+        }else if($('#registro_materno').val()==""){
+            swal('Upps', 'Ingresa tu "apellido materno" por favor', 'warning');
             return false;
-        } else if ($('#registro_fecha_nacimiento').val() == "") {
-            swal('Upps', 'Ingresa tu "Fecha de Nacimiento" por favor', 'warning');
+        }else if($('#registro_fecha_nacimiento').val()==""){
+            swal('Upps', 'Ingresa tu "fecha de nacimiento" por favor', 'warning');
             return false;
-        } else if ($('#registro_telefono').val() == "") {
-            swal('Upps', 'Ingresa tu "Telefono" por favor', 'warning');
+        }else if($('#registro_telefono').val()==""){
+            swal('Upps', 'Ingresa tu "telefono" por favor', 'warning');
             return false;
-        } else if ($('#registro_carrera').val() == "") {
-            swal('Upps', 'Selecciona tu carrera, por favor', 'warning');
+        }else if($('#registro_carrera').val()==""){
+            swal('Upps', 'Selecciona tu carrera por favor', 'warning');
             return false;
-        } else if ($('#registro_mail').val() == "") {
-            swal('Upps', 'Ingresa tu "Apellido Paterno" por favor', 'warning');
+        }else if($('#registro_mail').val()==""){
+            swal('Upps', 'Ingresa tu "mail" por favor', 'warning');
             return false;
-        } else if ($('#registro_password').val() == "") {
-            swal('Upps', 'Ingresa tu "Apellido Paterno" por favor', 'warning');
+        }else if($('#registro_password').val()==""){
+            swal('Upps', 'Ingresa tu "password" por favor', 'warning');
             return false;
-        } else if ($('#registro_password_confirmar').val() == "") {
-            swal('Upps', 'Ingresa tu "Apellido Paterno" por favor', 'warning');
+        }else if($('#registro_password_confirmacion').val()==""){
+            swal('Upps', 'Ingresa tu "confirmacion de password" por favor', 'warning');
             return false;
-        } else {
-            swal('Correcto', 'Todos los valores tienen un valor', 'success');
+        }else{
+            swal('Yeah', 'Todos los campos tienen algun valor', 'success');
+            valida_construccion_alfabetica();
         }
     }
 
-    $('#btn_registro_usuario').click(function() {
+    $('#btn_registro_usuario').click(function(){
         valida_vacios();
     });
+
 });

@@ -1,4 +1,6 @@
 <?php
-  echo $_POST['bandera_nombre'];
-  echo $_POST['bandera_password'];
+
+    echo $_POST['nombre'];
+    echo $_POST['password'];
+
 ?>
