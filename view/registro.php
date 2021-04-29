@@ -71,7 +71,7 @@
             <hr>
             <form id="formulario_registro_b">
                 <div class="form-group">
-                    <label for="registro_mail">Mail personal</label>
+                    <label for="registro_mail" class="lead">Mail personal</label>
                     <input 
                         type="email" 
                         name="registro_mail" 
@@ -79,7 +79,7 @@
                         class="form-control form-control-sm">
                 </div>
                 <div class="form-group">
-                    <label for="registro_password">Password</label>
+                    <label for="registro_password" class="lead">Contraseña</label>
                     <input 
                         type="password" 
                         name="registro_password" 
@@ -87,7 +87,7 @@
                         class="form-control form-control-sm">
                 </div>
                 <div class="form-group">
-                    <label for="registro_password_confirmacion">Confirmar <strong>Password</strong></label>
+                    <label for="registro_password_confirmacion" class="lead">Confirmar <strong>Contraseña</strong></label>
                     <input 
                         type="password" 
                         name="registro_password_confirmacion" 
