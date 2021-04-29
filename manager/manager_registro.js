@@ -1,6 +1,23 @@
 $(document).ready(function() {
     function valida_telefono() {
-
+        telefono = $('#registro_telefono').val();
+        telefono = parseInt(telefono);
+        if (telefono < 0) {
+            swal('Alerta en el telefono', 'No existen numeros de telefono NEGATIVOS', 'warning');
+            return false;
+        } else {
+            telefono = telefono.toString();
+            if (telefono.length < 10) {
+                swal('Alerta en el telefono', 'No debes de tener mas de 10 digitos\nRecuerda que en la zona metropolitana los inician con 55 o 56\nEjemplo: 5554189163', 'warning');
+                return false;
+            } else if (telefono.length > 10) {
+                swal('Alerta en el telefono', 'No debes de tener menos de 10 digitos\nRecuerda que en la zona metropolitana los inician con 55 o 56\nEjemplo: 5554189163', 'warning');
+                return false;
+            } else {
+                registro_telefono = $('#registro_telefono').val();
+                valida_seleccion_carrera();
+            }
+        }
     }
 
     function valida_fecha_nacimiento() {
