@@ -1,11 +1,26 @@
 $(document).ready(function() {
     const regexpLetra = /[^A-Za-zÑñÁÉÍÓÚáéíóú +]/g;
-    const regexpNumero = /[^0-9+]/g;
 
     function vacio(id_nombre, nombre) {
-        if (id_nombre == "") {
+        if (id_nombre == "" || id_nombre == " ") {
             swal('Upps', `Ingresa tu ${nombre} por favor`, 'warning');
             return false;
+        }
+    }
+
+    function validar_numero(id_nombre, nombre) {
+        telefono = id_nombre.toString();
+        if (telefono == "") {
+            swal('Upps', `Ingresa tu ${nombre} por favor`, 'warning');
+            return false;
+        } else {
+            if (telefono.length < 10) {
+                swal('Alerta en el telefono', 'No debes de tener menos de 10 digitos\nRecuerda que en la zona metropolitana los inician con 55 o 56\nEjemplo: 5554189163', 'warning');
+                return false;
+            } else {
+                return id_nombre;
+
+            }
         }
     }
 
@@ -21,13 +36,14 @@ $(document).ready(function() {
                 --edad;
             }
             if (edad < 16) {
-                swal('Alerta en fecha de nacimiento', 'La fecha no es valida: Eres muy joven', 'warning');
+                swal('Alerta en fecha de nacimiento', `La fecha no es valida: Eres muy joven\nTienes: ${edad}`, 'warning');
                 return false;
             } else if (edad > 99) {
-                swal('Alerta en fecha de nacimiento', 'La fecha no es valida: Eres muy viejo', 'warning');
+                swal('Alerta en fecha de nacimiento', `La fecha no es valida: Eres muy viejo\nTienes: ${edad}`, 'warning');
                 return false;
             }
         }
+        return id_nombre;
     }
 
     function valida_texto(id_nombre, nombre) {
@@ -45,7 +61,8 @@ $(document).ready(function() {
         return valor;
     }
     $('#btn_registro_usuario').click(function() {
-        registro_fecha_nacimiento = validar_fecha($('#registro_fecha_nacimiento').val(), 'Fecha de Nacimiento')
+        registro_telefono = validar_numero($('#registro_telefono').val(), 'Telefono');
+        registro_fecha_nacimiento = validar_fecha($('#registro_fecha_nacimiento').val(), 'Fecha de Nacimiento');
         registro_materno = valida_texto($('#registro_materno').val(), 'Apellido Materno');
         registro_paterno = valida_texto($('#registro_paterno').val(), 'Apellido Paterno');
         registro_nombre = valida_texto($('#registro_nombre').val(), 'Nombre');

@@ -19,7 +19,8 @@
                         type="text" 
                         class="form-control form-control-sm"
                         id="registro_nombre"
-                        name="registro_nombre" >
+                        name="registro_nombre" 
+                        onkeypress="return sololetras(event)">
                 </div>
                 <div class="form-group">
                     <label for="registro_paterno" class="lead">Apellido Paterno</label>
@@ -27,7 +28,8 @@
                         type="text" 
                         class="form-control form-control-sm"
                         id="registro_paterno"
-                        name="registro_paterno" >
+                        name="registro_paterno" 
+                        onkeypress="return sololetras(event)">
                 </div>
                 <div class="form-group">
                     <label for="registro_materno" class="lead">Apellido Materno</label>
@@ -35,7 +37,8 @@
                         type="text" 
                         class="form-control form-control-sm"
                         id="registro_materno"
-                        name="registro_materno" >
+                        name="registro_materno" 
+                        onkeypress="return sololetras(event)">
                 </div>
                 <div class="form-group">
                     <label for="registro_fecha_nacimiento" class="lead">Fecha de Nacimiento</label>
@@ -47,11 +50,13 @@
                 </div>
                 <div class="form-group">
                     <label for="registro_telefono" class="lead">Teléfono de contacto (Preferente Móvil)</label>
-                    <input 
-                        type="number"
+                    <input
+                        maxlength="10"
+                        type="text"
                         class="form-control form-control-sm"
                         id="registro_telefono"
-                        name="registro_telefono">
+                        name="registro_telefono"
+                        onkeypress="return solonumeros(event)">
                 </div>
                 <div class="form-group">
                     <label for="registro_carrera" class="lead">Carrera de tu elección</label>
@@ -109,5 +114,39 @@
     </div>
 </div>
 
+<script>
+function solonumeros (e){
+    key=e.keyCode || e.which; 
+    tecla = String.fromCharCode (key).toLowerCase();
+    letras = "0123456789";
+    especiales = "37-39-46";
+    tecla_especial= false;
+    for (var i in especiales){
+        if (key == especiales [i]){
+            tecla_especial=true;
+            break;
+        }
+    }
+    if (letras.indexOf(tecla)==-1&&! tecla_especial){
+        return false;
+    } 
+}
+function sololetras (e){
+    key=e.keyCode || e.which; 
+    tecla = String.fromCharCode (key).toLowerCase();
+    letras = "abcdefghijklmnopqrstuvwxyzñáéíóú ";
+    especiales = "37-39-46-160-161-162-163-130";
+    tecla_especial= false;
+    for (var i in especiales){
+        if (key == especiales [i]){
+            tecla_especial=true;
+            break;
+        }
+    }
+    if (letras.indexOf(tecla)==-1&&! tecla_especial){
+        return false;
+    } 
+}
+</script>
 <!-- <script src="manager/manager_registro.js"></script> -->
 <script src="manager/manager_registro_comprimido.js"></script>
