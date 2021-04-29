@@ -109,4 +109,5 @@
     </div>
 </div>
 
-<script src="manager/manager_registro.js"></script>
+<!-- <script src="manager/manager_registro.js"></script> -->
+<script src="manager/manager_registro_comprimido.js"></script>

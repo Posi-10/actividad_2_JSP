@@ -15,7 +15,7 @@ $(document).ready(function() {
                 return false;
             } else {
                 registro_telefono = $('#registro_telefono').val();
-                valida_seleccion_carrera();
+                //valida_seleccion_carrera();
             }
         }
     }
@@ -23,7 +23,7 @@ $(document).ready(function() {
     function valida_fecha_nacimiento() {
         if ($('#registro_fecha_nacimiento').val() != "") {
             fecha_ingresada = $('#registro_fecha_nacimiento').val().split("-");
-            edad = 2021 - fecha_ingresada;
+            edad = 2021 - fecha_ingresada[0];
             if (edad < 16) {
                 swal('Alerta en fecha de nacimiento', 'La fecha no es valida: Eres muy joven', 'warning');
                 return false;
@@ -55,8 +55,8 @@ $(document).ready(function() {
         } else {
             registro_nombre = $('#registro_nombre').val();
             registro_nombre = registro_nombre.trim();
-            registro_nombre = registro_nombre.toUpperCase;
-            cadena = $('#registro_nombre').val();
+            registro_nombre = registro_nombre.toUpperCase();
+            cadena = $('#registro_paterno').val();
             resultado1 = cadena.match(regexp1);
             resultado2 = cadena.match(regexp2);
             if (resultado1 != null || resultado2 != null) {
@@ -71,8 +71,8 @@ $(document).ready(function() {
             } else {
                 registro_paterno = $('#registro_paterno').val();
                 registro_paterno = registro_paterno.trim();
-                registro_paterno = registro_paterno.toUpperCase;
-                cadena = $('#registro_paterno').val();
+                registro_paterno = registro_paterno.toUpperCase();
+                cadena = $('#registro_materno').val();
                 resultado1 = cadena.match(regexp1);
                 resultado2 = cadena.match(regexp2);
                 if (resultado1 != null || resultado2 != null) {
@@ -87,8 +87,7 @@ $(document).ready(function() {
                 } else {
                     registro_materno = $('#registro_materno').val();
                     registro_materno = registro_materno.trim();
-                    registro_materno = registro_materno.toUpperCase;
-                    cadena = $('#registro_materno').val();
+                    registro_materno = registro_materno.toUpperCase();
                     resultado1 = cadena.match(regexp1);
                     resultado2 = cadena.match(regexp2);
                     valida_fecha_nacimiento();
