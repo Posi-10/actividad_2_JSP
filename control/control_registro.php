@@ -47,7 +47,7 @@
     if($correo->send()){
       return '100';
     }else{
-      return '400';
+      return '404';
     }
   }
   function verifica_correo_existente($correo){
