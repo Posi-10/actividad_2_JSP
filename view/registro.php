@@ -52,10 +52,12 @@
                     <label for="registro_telefono" class="lead">Teléfono de contacto (Preferente Móvil)</label>
                     <input
                         maxlength="10"
-                        type="text"
+                        min = "0"
+                        type="number"
                         class="form-control form-control-sm"
                         id="registro_telefono"
                         name="registro_telefono"
+                        oninput="validity.valid||(value='');"
                         onkeypress="return solonumeros(event)">
                 </div>
                 <div class="form-group">

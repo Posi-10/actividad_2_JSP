@@ -1,4 +1,61 @@
 $(document).ready(function() {
+
+    function valida_confirmacion_password() {
+        if ($('#registro_password').val() != $('#registro_password_confirmacion').val()) {
+            swal('Upps', 'Las contraseñas no coinciden, favor de verificar', 'warnig');
+            $('#registro_password_confirmacion').val("");
+            return false;
+        } else {
+            registro_password = $('#registro_password').val();
+            recolector_de_informacion = "registro_nombre" + registro_nombre +
+                "&registro_paterno" + registro_paterno +
+                "&registro_materno" + registro_materno +
+                "&registro_fecha_nacimiento" + registro_fecha_nacimiento +
+                "&registro_telefono" + registro_telefono +
+                "&registro_carrera" + registro_carrera +
+                "&registro_mail" + registro_mail +
+                "&registro_password" + registro_password;
+            $.ajax({
+                type: 'POST',
+                data: recolector_de_informacion,
+                url: 'control/control_registro.php',
+                success: resultado => {
+
+                }
+            });
+        }
+    }
+
+    function valida_confirmacion_email() {
+        if ($('#regitro_mail').val() != $('#registro_mail_confirmacion').val()) {
+            swal('Upps', 'Los email´s no coinciden, favor de verificar', 'warnig');
+            $('#registro_mail_confirmacion').val("");
+            return false;
+        } else {
+            registro_mail = $('#registro_mail').val();
+            valida_confirmacion_password();
+        }
+    }
+
+    function valida_construccion_email() {
+        cadena = $('#registro_mail').val();
+        if (/^\w+([\-]?\w+)*@\w+([\-]?\w+)*(\.\w{2,4})+$/.test(cadena)) {
+            valida_confirmacion_email();
+        } else {
+            swal('Upps', 'Ingresa un email valido por favor', 'warnig');
+            return false;
+        }
+    }
+
+    function valida_seleccion_carrera() {
+        carrera = $('#registro_carrera').val();
+        carrera = carrera.toUpperCase();
+        if (carrera == 'SIS' || carrera == 'IND' || carrera == 'GES') {
+            registro_carrera = carrera;
+            valida_construccion_email();
+        }
+    }
+
     function valida_telefono() {
         telefono = $('#registro_telefono').val();
         telefono = parseInt(telefono);
@@ -15,7 +72,7 @@ $(document).ready(function() {
                 return false;
             } else {
                 registro_telefono = $('#registro_telefono').val();
-                //valida_seleccion_carrera();
+                valida_seleccion_carrera();
             }
         }
     }
