@@ -150,5 +150,5 @@ function sololetras (e){
     } 
 }
 </script>
-<!-- <script src="manager/manager_registro.js"></script> -->
-<script src="manager/manager_registro_comprimido.js"></script>
+<script src="manager/manager_registro.js"></script>
+<!-- <script src="manager/manager_registro_comprimido.js"></script> -->

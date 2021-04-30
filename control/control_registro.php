@@ -1,6 +1,6 @@
 <?php
   require_once '../app/conexion.php';
-  require_once '../app/php_mailer/PHPMailerAutoload.php';
+  require_once '../app/php_mailer/PHPMailerAutoload.php'; 
   $conexion = conexion();
   $datos_recibidos = array(
     $conexion->real_escape_string(htmlentities($_POST['registro_nombre'])),
@@ -44,7 +44,7 @@
     <p>What\'s App: <strong>5562128790</strong></p>
     ';
     $correo->isHTML(true);
-    if($correo->sed()){
+    if($correo->send()){
       return '100';
     }else{
       return '400';
